@@ -7,14 +7,14 @@
 <!-- #f5f5f5 -->
     <div class="row">
             <div class="col-xs-4" style="padding: 2px 1px 2px 0;">
-                <div class="btn btn-block" ng-click="changeGoods('AG', 2)" style="padding:0; line-height:24px;">
+                <div class="btn btn-block" ng-click="changeGoods('AG', 2)" onclick="$('.cphp').attr('style','display:none');$('.jnb').attr('style','display:none');$('.jnyb').attr('style','display:show')" style="padding:0; line-height:24px;">
                     <div style="font-size:12px; ">纪念银币</div>
                     <div class="btn-hq btn-hq-up" style="font-size:18px;" goods-hq="AG">4218.00 <i class="fa fa-long-arrow-up"></i></div>
                 </div>
                 <div ng-style="selectGoodsButtonStyles['AG']" style="border: 1px solid rgb(163, 133, 95); margin-top: 0px; "></div>
             </div>
             <div class="col-xs-4" style="padding: 2px 1px 2px 1px;">
-                <div class="btn btn-block" ng-click="changeGoods('FU', 4)" style="padding: 0; line-height:24px;">
+                <div class="btn btn-block" ng-click="changeGoods('FU', 4)" onclick="$('.cphp').attr('style','display:show');$('.jnb').attr('style','display:none');$('.jnyb').attr('style','display:none')" style="padding: 0; line-height:24px;">
                     <div style="font-size:12px;">成品琥珀</div>
                     <div class="btn-hq btn-hq-up" style="font-size:18px;" goods-hq="FU">320.08 <i class="fa fa-long-arrow-down"></i>
                     
@@ -23,7 +23,7 @@
                 <div ng-style="selectGoodsButtonStyles['FU']" style="margin-top: 0px; "></div>
             </div>
             <div class="col-xs-4" style="padding: 2px 0 2px 1px;">
-                <div class="btn btn-block" ng-click="changeGoods('CU', 6)" style="padding: 0; line-height:24px;">
+                <div class="btn btn-block" ng-click="changeGoods('CU', 6)" onclick="$('.cphp').attr('style','display:none');$('.jnb').attr('style','display:show');$('.jnyb').attr('style','display:none')" style="padding: 0; line-height:24px;">
                     <div style="font-size:12px;">毛主席纪念铜章</div>
                     <div class="btn-hq btn-hq-up" style="font-size:18px;" goods-hq="CU">32389.00 <i class="fa fa-long-arrow-up"></i></div>
                 </div>
@@ -48,7 +48,11 @@
         <div style="height:325px;">
             <iframe id="hqIframe" style="width:100%;height:100%;border:none;" scrolling="no" src="http://hq.gz.1251923837.clb.myqcloud.com/ZhongJiang/HQ?goodsCode=AG&amp;lineType=1"></iframe>
         </div>
-		<div style="width:100%">
+		
+		
+		
+	</div>
+	<div style="width:100%;display:none" class="cphp" >
 		
 			 <?php if(is_array($yin)): $i = 0; $__LIST__ = $yin;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$yvo): $mod = ($i % 2 );++$i;?><div style="text-align:center;color:black;border:1px #E8E8E8 solid;height:50px;margin-top:8px">
 					
@@ -61,6 +65,8 @@
 					<div style="float:right;width:25%;border:1px #E8E8E8 solid;height:48px;background:#F2F7F2;line-height:50px;color:#0C670C" ui-turn-on="modalBuy" ng-click="setBuyTransactionGoods(<?php echo ($yvo["pid"]); ?>, 2,<?php echo ($yvo["uprice"]); ?>,'<?php echo ($yvo["ptitle"]); ?>')"  class="zhang" >买跌&nbsp;&nbsp;<i class="fa fa-long-arrow-down"></i></div>
 					 
 				</div><?php endforeach; endif; else: echo "" ;endif; ?>  
+		</div>
+		<div style="width:100%;display:show" class="jnyb">
 		  <?php if(is_array($you)): $i = 0; $__LIST__ = $you;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div style="text-align:center;color:black;border:1px #E8E8E8 solid;height:50px;margin-top:8px">
 					
 					<div style="float:left;width:25%;border:1px #E8E8E8 solid;height:48px;background:#F2F7F2;line-height:50px;color:#CD0000" ui-turn-on="modalBuy" ng-click="setBuyTransactionGoods(<?php echo ($vo["pid"]); ?>, 1,<?php echo ($vo["uprice"]); ?>,'<?php echo ($vo["ptitle"]); ?>')" >买涨&nbsp;&nbsp;<i class="fa fa-long-arrow-up"></i></div>
@@ -71,6 +77,8 @@
 					<div style="float:right;width:25%;border:1px #E8E8E8 solid;height:48px;background:#F2F7F2;line-height:50px;color:#0C670C" ui-turn-on="modalBuy" ng-click="setBuyTransactionGoods(<?php echo ($vo["pid"]); ?>, 2,<?php echo ($vo["uprice"]); ?>,'<?php echo ($vo["ptitle"]); ?>')" >买跌&nbsp;&nbsp;<i class="fa fa-long-arrow-down"></i></div>
 					 
 				</div><?php endforeach; endif; else: echo "" ;endif; ?>  
+		</div>
+		<div style="width:100%;display:none" class="jnb">
 		  <?php if(is_array($tong)): $i = 0; $__LIST__ = $tong;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$tvo): $mod = ($i % 2 );++$i;?><div style="text-align:center;color:black;border:1px #E8E8E8 solid;height:50px;margin-top:8px">
 					
 					<div style="float:left;width:25%;border:1px #E8E8E8 solid;height:48px;background:#F2F7F2;line-height:60px;color:#CD0000" ui-turn-on="modalBuy" ng-click="setBuyTransactionGoods(<?php echo ($tvo["pid"]); ?>, 1,<?php echo ($tvo["uprice"]); ?>,'<?php echo ($tvo["ptitle"]); ?>')" >买涨&nbsp;&nbsp;<i class="fa fa-long-arrow-up"></i></div>
@@ -81,8 +89,6 @@
 					<div style="float:right;width:25%;border:1px #E8E8E8 solid;height:48px;background:#F2F7F2;line-height:50px;color:#0C670C" ui-turn-on="modalBuy" ng-click="setBuyTransactionGoods(<?php echo ($tvo["pid"]); ?>, 2,<?php echo ($tvo["uprice"]); ?>,'<?php echo ($tvo["ptitle"]); ?>')" >买跌&nbsp;&nbsp;<i class="fa fa-long-arrow-down"></i></div>
 					 
 				</div><?php endforeach; endif; else: echo "" ;endif; ?>  
-		</table>
-		
 		</div>
      <!-- <!--  <div class="swiper-container swiper-container-horizontal swiper-container-android" style="margin:15px 0 0 0;" ng-init="swiperSlideCount=8">
             <div class="swiper-wrapper" style="height: 140px; -webkit-transform: translate3d(-343px, 0px, 0px); -webkit-transition: 0ms; ">

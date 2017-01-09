@@ -1768,3 +1768,845 @@ INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000902s ]
 INFO: [ app_begin ] --END-- [ RunTime:0.001678s ]
 ERR: 非法操作:my
 
+[ 2017-01-09T10:43:41+08:00 ] 127.0.0.1 /index.php/Home/Index/My/UserProfile
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001093s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001717s ]
+ERR: 非法操作:my
+
+[ 2017-01-09T10:43:41+08:00 ] 127.0.0.1 /index.php/Home/Index/home.html?t=1483929821137
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001013s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001619s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\money\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.042072s ]
+SQL: SELECT * FROM `wp_productinfo`  [ RunTime:0.040421s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000213s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000259s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.016761s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016812s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000782s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000817s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000976s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001035s ]
+
+[ 2017-01-09T10:50:09+08:00 ] 127.0.0.1 /index.php/Home/Index/index.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001156s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002099s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\money\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.042756s ]
+SQL: SELECT * FROM `wp_userinfo` WHERE ( uid=405 ) LIMIT 1   [ RunTime:0.041748s ]
+SQL: SHOW COLUMNS FROM `wp_accountinfo` [ RunTime:0.042422s ]
+SQL: SELECT * FROM `wp_accountinfo` WHERE ( uid=405 ) LIMIT 1   [ RunTime:0.053009s ]
+SQL: SHOW COLUMNS FROM `wp_experienceinfo` [ RunTime:0.043188s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `wp_experienceinfo` INNER JOIN wp_experience on wp_experienceinfo.eid=wp_experience.eid  WHERE ( wp_experienceinfo.uid=405 and 1483930208 < wp_experienceinfo.endtime and wp_experienceinfo.getstyle=0 ) LIMIT 1   [ RunTime:0.043068s ]
+SQL: SHOW COLUMNS FROM `wp_catproduct` [ RunTime:0.054663s ]
+SQL: SELECT * FROM `wp_catproduct`  [ RunTime:0.049947s ]
+SQL: SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.042974s ]
+SQL: SELECT * FROM `wp_productinfo`  [ RunTime:0.040339s ]
+SQL: SHOW COLUMNS FROM `wp_order` [ RunTime:0.042977s ]
+SQL: SELECT * FROM `wp_order` INNER JOIN wp_productinfo on wp_order.pid=wp_productinfo.pid INNER JOIN wp_catproduct on wp_productinfo.cid=wp_catproduct.cid  WHERE ( wp_order.uid=405 and ostaus=0 )  [ RunTime:0.042738s ]
+SQL: SHOW COLUMNS FROM `wp_newsinfo` [ RunTime:0.055038s ]
+SQL: SELECT * FROM `wp_newsinfo` WHERE ( ncategory=1 ) ORDER BY nid desc LIMIT 3   [ RunTime:0.041965s ]
+SQL: SELECT * FROM `wp_newsinfo` WHERE ( ncategory=2 ) ORDER BY nid desc LIMIT 3   [ RunTime:0.041113s ]
+SQL: SELECT * FROM `wp_newsinfo` WHERE ( ncategory=3 ) ORDER BY nid desc LIMIT 3   [ RunTime:0.054400s ]
+SQL: SHOW COLUMNS FROM `wp_webconfig` [ RunTime:0.046700s ]
+SQL: SELECT * FROM `wp_webconfig`  [ RunTime:0.040804s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000093s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000158s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.011060s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011138s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000856s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000893s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000943s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000978s ]
+
+[ 2017-01-09T10:50:10+08:00 ] 127.0.0.1 /index.php/Home/Index/My/TransactionGoods?t=1483930210511
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001176s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001873s ]
+ERR: 非法操作:my
+
+[ 2017-01-09T10:50:10+08:00 ] 127.0.0.1 /index.php/Home/Index/My/UserProfile
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001506s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002155s ]
+ERR: 非法操作:my
+
+[ 2017-01-09T10:50:11+08:00 ] 127.0.0.1 /index.php/Home/Index/home.html?t=1483930210525
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001062s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001667s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\money\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.042123s ]
+SQL: SELECT * FROM `wp_productinfo`  [ RunTime:0.039279s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000160s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000206s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.015073s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015141s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001005s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001051s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001482s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001550s ]
+
+[ 2017-01-09T10:52:16+08:00 ] 127.0.0.1 /index.php/Home/Index/index.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001009s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001625s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\money\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.044210s ]
+SQL: SELECT * FROM `wp_userinfo` WHERE ( uid=405 ) LIMIT 1   [ RunTime:0.041098s ]
+SQL: SHOW COLUMNS FROM `wp_accountinfo` [ RunTime:0.041902s ]
+SQL: SELECT * FROM `wp_accountinfo` WHERE ( uid=405 ) LIMIT 1   [ RunTime:0.046962s ]
+SQL: SHOW COLUMNS FROM `wp_experienceinfo` [ RunTime:0.042187s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `wp_experienceinfo` INNER JOIN wp_experience on wp_experienceinfo.eid=wp_experience.eid  WHERE ( wp_experienceinfo.uid=405 and 1483930335 < wp_experienceinfo.endtime and wp_experienceinfo.getstyle=0 ) LIMIT 1   [ RunTime:0.042726s ]
+SQL: SHOW COLUMNS FROM `wp_catproduct` [ RunTime:0.041934s ]
+SQL: SELECT * FROM `wp_catproduct`  [ RunTime:0.041747s ]
+SQL: SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.045028s ]
+SQL: SELECT * FROM `wp_productinfo`  [ RunTime:0.042993s ]
+SQL: SHOW COLUMNS FROM `wp_order` [ RunTime:0.044893s ]
+SQL: SELECT * FROM `wp_order` INNER JOIN wp_productinfo on wp_order.pid=wp_productinfo.pid INNER JOIN wp_catproduct on wp_productinfo.cid=wp_catproduct.cid  WHERE ( wp_order.uid=405 and ostaus=0 )  [ RunTime:0.045488s ]
+SQL: SHOW COLUMNS FROM `wp_newsinfo` [ RunTime:0.045518s ]
+SQL: SELECT * FROM `wp_newsinfo` WHERE ( ncategory=1 ) ORDER BY nid desc LIMIT 3   [ RunTime:0.043619s ]
+SQL: SELECT * FROM `wp_newsinfo` WHERE ( ncategory=2 ) ORDER BY nid desc LIMIT 3   [ RunTime:0.040270s ]
+SQL: SELECT * FROM `wp_newsinfo` WHERE ( ncategory=3 ) ORDER BY nid desc LIMIT 3   [ RunTime:0.045317s ]
+SQL: SHOW COLUMNS FROM `wp_webconfig` [ RunTime:0.047836s ]
+SQL: SELECT * FROM `wp_webconfig`  [ RunTime:0.354433s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000054s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000090s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.007226s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007278s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000814s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000849s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001078s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001115s ]
+
+[ 2017-01-09T10:52:17+08:00 ] 127.0.0.1 /index.php/Home/Index/My/TransactionGoods?t=1483930337287
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000876s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001396s ]
+ERR: 非法操作:my
+
+[ 2017-01-09T10:52:17+08:00 ] 127.0.0.1 /index.php/Home/Index/My/UserProfile
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000999s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001718s ]
+ERR: 非法操作:my
+
+[ 2017-01-09T10:52:20+08:00 ] 127.0.0.1 /index.php/Home/Index/home.html?t=1483930337298
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001003s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001828s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\money\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.046758s ]
+SQL: SELECT * FROM `wp_productinfo`  [ RunTime:0.042700s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000157s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000226s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.018188s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018259s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000798s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000834s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000949s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000994s ]
+
+[ 2017-01-09T10:57:13+08:00 ] 127.0.0.1 /index.php/Home/Index/index.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001126s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001873s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\money\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.049188s ]
+SQL: SELECT * FROM `wp_userinfo` WHERE ( uid=405 ) LIMIT 1   [ RunTime:0.042090s ]
+SQL: SHOW COLUMNS FROM `wp_accountinfo` [ RunTime:0.043228s ]
+SQL: SELECT * FROM `wp_accountinfo` WHERE ( uid=405 ) LIMIT 1   [ RunTime:0.040582s ]
+SQL: SHOW COLUMNS FROM `wp_experienceinfo` [ RunTime:0.050281s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `wp_experienceinfo` INNER JOIN wp_experience on wp_experienceinfo.eid=wp_experience.eid  WHERE ( wp_experienceinfo.uid=405 and 1483930632 < wp_experienceinfo.endtime and wp_experienceinfo.getstyle=0 ) LIMIT 1   [ RunTime:0.041184s ]
+SQL: SHOW COLUMNS FROM `wp_catproduct` [ RunTime:0.049188s ]
+SQL: SELECT * FROM `wp_catproduct`  [ RunTime:0.045823s ]
+SQL: SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.049016s ]
+SQL: SELECT * FROM `wp_productinfo`  [ RunTime:0.050411s ]
+SQL: SHOW COLUMNS FROM `wp_order` [ RunTime:0.051665s ]
+SQL: SELECT * FROM `wp_order` INNER JOIN wp_productinfo on wp_order.pid=wp_productinfo.pid INNER JOIN wp_catproduct on wp_productinfo.cid=wp_catproduct.cid  WHERE ( wp_order.uid=405 and ostaus=0 )  [ RunTime:0.045216s ]
+SQL: SHOW COLUMNS FROM `wp_newsinfo` [ RunTime:0.042796s ]
+SQL: SELECT * FROM `wp_newsinfo` WHERE ( ncategory=1 ) ORDER BY nid desc LIMIT 3   [ RunTime:0.041497s ]
+SQL: SELECT * FROM `wp_newsinfo` WHERE ( ncategory=2 ) ORDER BY nid desc LIMIT 3   [ RunTime:0.041974s ]
+SQL: SELECT * FROM `wp_newsinfo` WHERE ( ncategory=3 ) ORDER BY nid desc LIMIT 3   [ RunTime:0.043260s ]
+SQL: SHOW COLUMNS FROM `wp_webconfig` [ RunTime:0.046304s ]
+SQL: SELECT * FROM `wp_webconfig`  [ RunTime:0.044399s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000111s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000191s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.014446s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014513s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000947s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000984s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001786s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001894s ]
+
+[ 2017-01-09T10:57:13+08:00 ] 127.0.0.1 /index.php/Home/Index/My/TransactionGoods?t=1483930633707
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000933s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001551s ]
+ERR: 非法操作:my
+
+[ 2017-01-09T10:57:17+08:00 ] 127.0.0.1 /index.php/Home/Index/home.html?t=1483930633719
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001209s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001834s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\money\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.046667s ]
+SQL: SELECT * FROM `wp_productinfo`  [ RunTime:0.042257s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000174s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000232s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.016970s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017018s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000948s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000982s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001286s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001333s ]
+
+[ 2017-01-09T10:57:17+08:00 ] 127.0.0.1 /index.php/Home/Index/My/UserProfile
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001159s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001798s ]
+ERR: 非法操作:my
+
+[ 2017-01-09T10:57:44+08:00 ] 127.0.0.1 /index.php/Home/Index/index.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000835s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001542s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\money\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.048478s ]
+SQL: SELECT * FROM `wp_userinfo` WHERE ( uid=405 ) LIMIT 1   [ RunTime:0.048679s ]
+SQL: SHOW COLUMNS FROM `wp_accountinfo` [ RunTime:0.049925s ]
+SQL: SELECT * FROM `wp_accountinfo` WHERE ( uid=405 ) LIMIT 1   [ RunTime:0.043990s ]
+SQL: SHOW COLUMNS FROM `wp_experienceinfo` [ RunTime:0.044627s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `wp_experienceinfo` INNER JOIN wp_experience on wp_experienceinfo.eid=wp_experience.eid  WHERE ( wp_experienceinfo.uid=405 and 1483930663 < wp_experienceinfo.endtime and wp_experienceinfo.getstyle=0 ) LIMIT 1   [ RunTime:0.042744s ]
+SQL: SHOW COLUMNS FROM `wp_catproduct` [ RunTime:0.045818s ]
+SQL: SELECT * FROM `wp_catproduct`  [ RunTime:0.051911s ]
+SQL: SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.045295s ]
+SQL: SELECT * FROM `wp_productinfo`  [ RunTime:0.043464s ]
+SQL: SHOW COLUMNS FROM `wp_order` [ RunTime:0.044858s ]
+SQL: SELECT * FROM `wp_order` INNER JOIN wp_productinfo on wp_order.pid=wp_productinfo.pid INNER JOIN wp_catproduct on wp_productinfo.cid=wp_catproduct.cid  WHERE ( wp_order.uid=405 and ostaus=0 )  [ RunTime:0.049937s ]
+SQL: SHOW COLUMNS FROM `wp_newsinfo` [ RunTime:0.045389s ]
+SQL: SELECT * FROM `wp_newsinfo` WHERE ( ncategory=1 ) ORDER BY nid desc LIMIT 3   [ RunTime:0.044583s ]
+SQL: SELECT * FROM `wp_newsinfo` WHERE ( ncategory=2 ) ORDER BY nid desc LIMIT 3   [ RunTime:0.043153s ]
+SQL: SELECT * FROM `wp_newsinfo` WHERE ( ncategory=3 ) ORDER BY nid desc LIMIT 3   [ RunTime:0.042686s ]
+SQL: SHOW COLUMNS FROM `wp_webconfig` [ RunTime:0.045248s ]
+SQL: SELECT * FROM `wp_webconfig`  [ RunTime:0.047100s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000051s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000088s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.007812s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007861s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000902s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000936s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001091s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001127s ]
+
+[ 2017-01-09T10:57:45+08:00 ] 127.0.0.1 /index.php/Home/Index/My/TransactionGoods?t=1483930665038
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000779s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001294s ]
+ERR: 非法操作:my
+
+[ 2017-01-09T10:57:45+08:00 ] 127.0.0.1 /index.php/Home/Index/My/UserProfile
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001181s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001928s ]
+ERR: 非法操作:my
+
+[ 2017-01-09T10:57:45+08:00 ] 127.0.0.1 /index.php/Home/Index/home.html?t=1483930665052
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000869s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001480s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\money\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.042962s ]
+SQL: SELECT * FROM `wp_productinfo`  [ RunTime:0.039919s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000216s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000259s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.017434s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017542s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000736s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000773s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000996s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001062s ]
+
+[ 2017-01-09T10:59:20+08:00 ] 127.0.0.1 /index.php/Home/Index/index.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001115s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001895s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\money\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.348609s ]
+SQL: SELECT * FROM `wp_userinfo` WHERE ( uid=405 ) LIMIT 1   [ RunTime:0.040762s ]
+SQL: SHOW COLUMNS FROM `wp_accountinfo` [ RunTime:0.046290s ]
+SQL: SELECT * FROM `wp_accountinfo` WHERE ( uid=405 ) LIMIT 1   [ RunTime:0.038741s ]
+SQL: SHOW COLUMNS FROM `wp_experienceinfo` [ RunTime:0.044217s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `wp_experienceinfo` INNER JOIN wp_experience on wp_experienceinfo.eid=wp_experience.eid  WHERE ( wp_experienceinfo.uid=405 and 1483930759 < wp_experienceinfo.endtime and wp_experienceinfo.getstyle=0 ) LIMIT 1   [ RunTime:0.048005s ]
+SQL: SHOW COLUMNS FROM `wp_catproduct` [ RunTime:0.043546s ]
+SQL: SELECT * FROM `wp_catproduct`  [ RunTime:0.046716s ]
+SQL: SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.041408s ]
+SQL: SELECT * FROM `wp_productinfo`  [ RunTime:0.050962s ]
+SQL: SHOW COLUMNS FROM `wp_order` [ RunTime:0.041313s ]
+SQL: SELECT * FROM `wp_order` INNER JOIN wp_productinfo on wp_order.pid=wp_productinfo.pid INNER JOIN wp_catproduct on wp_productinfo.cid=wp_catproduct.cid  WHERE ( wp_order.uid=405 and ostaus=0 )  [ RunTime:0.041039s ]
+SQL: SHOW COLUMNS FROM `wp_newsinfo` [ RunTime:0.040655s ]
+SQL: SELECT * FROM `wp_newsinfo` WHERE ( ncategory=1 ) ORDER BY nid desc LIMIT 3   [ RunTime:0.043941s ]
+SQL: SELECT * FROM `wp_newsinfo` WHERE ( ncategory=2 ) ORDER BY nid desc LIMIT 3   [ RunTime:0.039101s ]
+SQL: SELECT * FROM `wp_newsinfo` WHERE ( ncategory=3 ) ORDER BY nid desc LIMIT 3   [ RunTime:0.042341s ]
+SQL: SHOW COLUMNS FROM `wp_webconfig` [ RunTime:0.043239s ]
+SQL: SELECT * FROM `wp_webconfig`  [ RunTime:0.040138s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000055s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000098s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.008911s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008973s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000752s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000785s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000977s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001017s ]
+
+[ 2017-01-09T10:59:20+08:00 ] 127.0.0.1 /index.php/Home/Index/My/TransactionGoods?t=1483930760779
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001124s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001887s ]
+ERR: 非法操作:my
+
+[ 2017-01-09T10:59:20+08:00 ] 127.0.0.1 /index.php/Home/Index/My/UserProfile
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001621s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002600s ]
+ERR: 非法操作:my
+
+[ 2017-01-09T10:59:21+08:00 ] 127.0.0.1 /index.php/Home/Index/home.html?t=1483930760797
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001582s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002406s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\money\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.041812s ]
+SQL: SELECT * FROM `wp_productinfo`  [ RunTime:0.040829s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000296s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000356s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.017761s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017809s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000764s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000798s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000923s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000967s ]
+
+[ 2017-01-09T11:00:17+08:00 ] 127.0.0.1 /index.php/Home/Index/index.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000784s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001312s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\money\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.042541s ]
+SQL: SELECT * FROM `wp_userinfo` WHERE ( uid=405 ) LIMIT 1   [ RunTime:0.041623s ]
+SQL: SHOW COLUMNS FROM `wp_accountinfo` [ RunTime:0.041073s ]
+SQL: SELECT * FROM `wp_accountinfo` WHERE ( uid=405 ) LIMIT 1   [ RunTime:0.039652s ]
+SQL: SHOW COLUMNS FROM `wp_experienceinfo` [ RunTime:0.049402s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `wp_experienceinfo` INNER JOIN wp_experience on wp_experienceinfo.eid=wp_experience.eid  WHERE ( wp_experienceinfo.uid=405 and 1483930816 < wp_experienceinfo.endtime and wp_experienceinfo.getstyle=0 ) LIMIT 1   [ RunTime:0.040301s ]
+SQL: SHOW COLUMNS FROM `wp_catproduct` [ RunTime:0.042515s ]
+SQL: SELECT * FROM `wp_catproduct`  [ RunTime:0.042222s ]
+SQL: SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.042357s ]
+SQL: SELECT * FROM `wp_productinfo`  [ RunTime:0.040449s ]
+SQL: SHOW COLUMNS FROM `wp_order` [ RunTime:0.042122s ]
+SQL: SELECT * FROM `wp_order` INNER JOIN wp_productinfo on wp_order.pid=wp_productinfo.pid INNER JOIN wp_catproduct on wp_productinfo.cid=wp_catproduct.cid  WHERE ( wp_order.uid=405 and ostaus=0 )  [ RunTime:0.041834s ]
+SQL: SHOW COLUMNS FROM `wp_newsinfo` [ RunTime:0.042149s ]
+SQL: SELECT * FROM `wp_newsinfo` WHERE ( ncategory=1 ) ORDER BY nid desc LIMIT 3   [ RunTime:0.041003s ]
+SQL: SELECT * FROM `wp_newsinfo` WHERE ( ncategory=2 ) ORDER BY nid desc LIMIT 3   [ RunTime:0.040858s ]
+SQL: SELECT * FROM `wp_newsinfo` WHERE ( ncategory=3 ) ORDER BY nid desc LIMIT 3   [ RunTime:0.039704s ]
+SQL: SHOW COLUMNS FROM `wp_webconfig` [ RunTime:0.043919s ]
+SQL: SELECT * FROM `wp_webconfig`  [ RunTime:0.042367s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000069s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000124s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.008148s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008229s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000615s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000649s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000734s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000772s ]
+
+[ 2017-01-09T11:00:18+08:00 ] 127.0.0.1 /index.php/Home/Index/home.html?t=1483930817776
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001045s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001777s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\money\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.041621s ]
+SQL: SELECT * FROM `wp_productinfo`  [ RunTime:0.038921s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000245s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000290s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.018008s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018073s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001305s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001358s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001137s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001205s ]
+
+[ 2017-01-09T11:00:18+08:00 ] 127.0.0.1 /index.php/Home/Index/My/TransactionGoods?t=1483930817763
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000877s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001567s ]
+ERR: 非法操作:my
+
+[ 2017-01-09T11:00:18+08:00 ] 127.0.0.1 /index.php/Home/Index/My/UserProfile
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001077s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001866s ]
+ERR: 非法操作:my
+
+[ 2017-01-09T11:00:57+08:00 ] 127.0.0.1 /index.php/Home/Index/index.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000720s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001234s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\money\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.047313s ]
+SQL: SELECT * FROM `wp_userinfo` WHERE ( uid=405 ) LIMIT 1   [ RunTime:0.419395s ]
+SQL: SHOW COLUMNS FROM `wp_accountinfo` [ RunTime:0.340971s ]
+SQL: SELECT * FROM `wp_accountinfo` WHERE ( uid=405 ) LIMIT 1   [ RunTime:0.039808s ]
+SQL: SHOW COLUMNS FROM `wp_experienceinfo` [ RunTime:0.043474s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `wp_experienceinfo` INNER JOIN wp_experience on wp_experienceinfo.eid=wp_experience.eid  WHERE ( wp_experienceinfo.uid=405 and 1483930857 < wp_experienceinfo.endtime and wp_experienceinfo.getstyle=0 ) LIMIT 1   [ RunTime:0.039576s ]
+SQL: SHOW COLUMNS FROM `wp_catproduct` [ RunTime:0.042419s ]
+SQL: SELECT * FROM `wp_catproduct`  [ RunTime:0.039432s ]
+SQL: SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.042081s ]
+SQL: SELECT * FROM `wp_productinfo`  [ RunTime:0.039490s ]
+SQL: SHOW COLUMNS FROM `wp_order` [ RunTime:0.042096s ]
+SQL: SELECT * FROM `wp_order` INNER JOIN wp_productinfo on wp_order.pid=wp_productinfo.pid INNER JOIN wp_catproduct on wp_productinfo.cid=wp_catproduct.cid  WHERE ( wp_order.uid=405 and ostaus=0 )  [ RunTime:0.041307s ]
+SQL: SHOW COLUMNS FROM `wp_newsinfo` [ RunTime:0.041013s ]
+SQL: SELECT * FROM `wp_newsinfo` WHERE ( ncategory=1 ) ORDER BY nid desc LIMIT 3   [ RunTime:0.040604s ]
+SQL: SELECT * FROM `wp_newsinfo` WHERE ( ncategory=2 ) ORDER BY nid desc LIMIT 3   [ RunTime:0.042836s ]
+SQL: SELECT * FROM `wp_newsinfo` WHERE ( ncategory=3 ) ORDER BY nid desc LIMIT 3   [ RunTime:0.039449s ]
+SQL: SHOW COLUMNS FROM `wp_webconfig` [ RunTime:0.041341s ]
+SQL: SELECT * FROM `wp_webconfig`  [ RunTime:0.049958s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000052s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000087s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.006281s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006325s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000644s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000677s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000754s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000792s ]
+
+[ 2017-01-09T11:00:58+08:00 ] 127.0.0.1 /index.php/Home/Index/My/TransactionGoods?t=1483930858378
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001126s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001911s ]
+ERR: 非法操作:my
+
+[ 2017-01-09T11:00:58+08:00 ] 127.0.0.1 /index.php/Home/Index/My/UserProfile
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001175s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001914s ]
+ERR: 非法操作:my
+
+[ 2017-01-09T11:00:59+08:00 ] 127.0.0.1 /index.php/Home/Index/home.html?t=1483930858393
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001142s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001876s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\money\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.043588s ]
+SQL: SELECT * FROM `wp_productinfo`  [ RunTime:0.040335s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000157s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000224s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.016676s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016727s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000669s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000707s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000867s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000927s ]
+
+[ 2017-01-09T11:03:21+08:00 ] 127.0.0.1 /index.php/Home/Index/index.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001012s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001600s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\money\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.044942s ]
+SQL: SELECT * FROM `wp_userinfo` WHERE ( uid=405 ) LIMIT 1   [ RunTime:0.040613s ]
+SQL: SHOW COLUMNS FROM `wp_accountinfo` [ RunTime:0.042091s ]
+SQL: SELECT * FROM `wp_accountinfo` WHERE ( uid=405 ) LIMIT 1   [ RunTime:0.041414s ]
+SQL: SHOW COLUMNS FROM `wp_experienceinfo` [ RunTime:0.042453s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `wp_experienceinfo` INNER JOIN wp_experience on wp_experienceinfo.eid=wp_experience.eid  WHERE ( wp_experienceinfo.uid=405 and 1483931000 < wp_experienceinfo.endtime and wp_experienceinfo.getstyle=0 ) LIMIT 1   [ RunTime:0.040894s ]
+SQL: SHOW COLUMNS FROM `wp_catproduct` [ RunTime:0.044373s ]
+SQL: SELECT * FROM `wp_catproduct`  [ RunTime:0.040565s ]
+SQL: SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.053811s ]
+SQL: SELECT * FROM `wp_productinfo`  [ RunTime:0.041006s ]
+SQL: SHOW COLUMNS FROM `wp_order` [ RunTime:0.047114s ]
+SQL: SELECT * FROM `wp_order` INNER JOIN wp_productinfo on wp_order.pid=wp_productinfo.pid INNER JOIN wp_catproduct on wp_productinfo.cid=wp_catproduct.cid  WHERE ( wp_order.uid=405 and ostaus=0 )  [ RunTime:0.042908s ]
+SQL: SHOW COLUMNS FROM `wp_newsinfo` [ RunTime:0.044956s ]
+SQL: SELECT * FROM `wp_newsinfo` WHERE ( ncategory=1 ) ORDER BY nid desc LIMIT 3   [ RunTime:0.041447s ]
+SQL: SELECT * FROM `wp_newsinfo` WHERE ( ncategory=2 ) ORDER BY nid desc LIMIT 3   [ RunTime:0.044657s ]
+SQL: SELECT * FROM `wp_newsinfo` WHERE ( ncategory=3 ) ORDER BY nid desc LIMIT 3   [ RunTime:0.046982s ]
+SQL: SHOW COLUMNS FROM `wp_webconfig` [ RunTime:0.041384s ]
+SQL: SELECT * FROM `wp_webconfig`  [ RunTime:0.039826s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000084s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000142s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.009051s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009100s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000809s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000843s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000927s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000965s ]
+
+[ 2017-01-09T11:03:22+08:00 ] 127.0.0.1 /index.php/Home/Index/My/TransactionGoods?t=1483931001925
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000765s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001411s ]
+ERR: 非法操作:my
+
+[ 2017-01-09T11:03:22+08:00 ] 127.0.0.1 /index.php/Home/Index/My/UserProfile
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001327s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002309s ]
+ERR: 非法操作:my
+
+[ 2017-01-09T11:03:22+08:00 ] 127.0.0.1 /index.php/Home/Index/home.html?t=1483931001945
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001016s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001722s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\money\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.047344s ]
+SQL: SELECT * FROM `wp_productinfo`  [ RunTime:0.045233s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000176s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000227s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.016933s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017021s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000867s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000899s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001019s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001059s ]
+
+[ 2017-01-09T11:04:42+08:00 ] 127.0.0.1 /index.php/Home/Index/index.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000921s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001586s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\money\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.042401s ]
+SQL: SELECT * FROM `wp_userinfo` WHERE ( uid=405 ) LIMIT 1   [ RunTime:0.040786s ]
+SQL: SHOW COLUMNS FROM `wp_accountinfo` [ RunTime:0.045678s ]
+SQL: SELECT * FROM `wp_accountinfo` WHERE ( uid=405 ) LIMIT 1   [ RunTime:0.039762s ]
+SQL: SHOW COLUMNS FROM `wp_experienceinfo` [ RunTime:0.041116s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `wp_experienceinfo` INNER JOIN wp_experience on wp_experienceinfo.eid=wp_experience.eid  WHERE ( wp_experienceinfo.uid=405 and 1483931082 < wp_experienceinfo.endtime and wp_experienceinfo.getstyle=0 ) LIMIT 1   [ RunTime:0.038999s ]
+SQL: SHOW COLUMNS FROM `wp_catproduct` [ RunTime:0.042008s ]
+SQL: SELECT * FROM `wp_catproduct`  [ RunTime:0.039962s ]
+SQL: SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.042470s ]
+SQL: SELECT * FROM `wp_productinfo`  [ RunTime:0.039994s ]
+SQL: SHOW COLUMNS FROM `wp_order` [ RunTime:0.041614s ]
+SQL: SELECT * FROM `wp_order` INNER JOIN wp_productinfo on wp_order.pid=wp_productinfo.pid INNER JOIN wp_catproduct on wp_productinfo.cid=wp_catproduct.cid  WHERE ( wp_order.uid=405 and ostaus=0 )  [ RunTime:0.041074s ]
+SQL: SHOW COLUMNS FROM `wp_newsinfo` [ RunTime:0.050552s ]
+SQL: SELECT * FROM `wp_newsinfo` WHERE ( ncategory=1 ) ORDER BY nid desc LIMIT 3   [ RunTime:0.048227s ]
+SQL: SELECT * FROM `wp_newsinfo` WHERE ( ncategory=2 ) ORDER BY nid desc LIMIT 3   [ RunTime:0.039100s ]
+SQL: SELECT * FROM `wp_newsinfo` WHERE ( ncategory=3 ) ORDER BY nid desc LIMIT 3   [ RunTime:0.041748s ]
+SQL: SHOW COLUMNS FROM `wp_webconfig` [ RunTime:0.041027s ]
+SQL: SELECT * FROM `wp_webconfig`  [ RunTime:0.039062s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000052s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000091s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.007302s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007363s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000759s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000791s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000971s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001011s ]
+
+[ 2017-01-09T11:04:43+08:00 ] 127.0.0.1 /index.php/Home/Index/My/TransactionGoods?t=1483931083343
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001158s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001824s ]
+ERR: 非法操作:my
+
+[ 2017-01-09T11:04:43+08:00 ] 127.0.0.1 /index.php/Home/Index/home.html?t=1483931083356
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000743s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001261s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\money\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.042707s ]
+SQL: SELECT * FROM `wp_productinfo`  [ RunTime:0.042501s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000160s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000211s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.017262s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017316s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000916s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000951s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001285s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001341s ]
+
+[ 2017-01-09T11:04:43+08:00 ] 127.0.0.1 /index.php/Home/Index/My/UserProfile
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001068s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001691s ]
+ERR: 非法操作:my
+
+[ 2017-01-09T11:07:21+08:00 ] 127.0.0.1 /index.php/Home/Index/index.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001336s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002037s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\money\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.044206s ]
+SQL: SELECT * FROM `wp_userinfo` WHERE ( uid=405 ) LIMIT 1   [ RunTime:0.052199s ]
+SQL: SHOW COLUMNS FROM `wp_accountinfo` [ RunTime:0.047576s ]
+SQL: SELECT * FROM `wp_accountinfo` WHERE ( uid=405 ) LIMIT 1   [ RunTime:0.050906s ]
+SQL: SHOW COLUMNS FROM `wp_experienceinfo` [ RunTime:0.056253s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `wp_experienceinfo` INNER JOIN wp_experience on wp_experienceinfo.eid=wp_experience.eid  WHERE ( wp_experienceinfo.uid=405 and 1483931239 < wp_experienceinfo.endtime and wp_experienceinfo.getstyle=0 ) LIMIT 1   [ RunTime:0.050535s ]
+SQL: SHOW COLUMNS FROM `wp_catproduct` [ RunTime:0.050945s ]
+SQL: SELECT * FROM `wp_catproduct`  [ RunTime:0.350521s ]
+SQL: SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.054535s ]
+SQL: SELECT * FROM `wp_productinfo`  [ RunTime:0.049231s ]
+SQL: SHOW COLUMNS FROM `wp_order` [ RunTime:0.047719s ]
+SQL: SELECT * FROM `wp_order` INNER JOIN wp_productinfo on wp_order.pid=wp_productinfo.pid INNER JOIN wp_catproduct on wp_productinfo.cid=wp_catproduct.cid  WHERE ( wp_order.uid=405 and ostaus=0 )  [ RunTime:0.367274s ]
+SQL: SHOW COLUMNS FROM `wp_newsinfo` [ RunTime:0.050725s ]
+SQL: SELECT * FROM `wp_newsinfo` WHERE ( ncategory=1 ) ORDER BY nid desc LIMIT 3   [ RunTime:0.055766s ]
+SQL: SELECT * FROM `wp_newsinfo` WHERE ( ncategory=2 ) ORDER BY nid desc LIMIT 3   [ RunTime:0.505476s ]
+SQL: SELECT * FROM `wp_newsinfo` WHERE ( ncategory=3 ) ORDER BY nid desc LIMIT 3   [ RunTime:0.043110s ]
+SQL: SHOW COLUMNS FROM `wp_webconfig` [ RunTime:0.044196s ]
+SQL: SELECT * FROM `wp_webconfig`  [ RunTime:0.045611s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000052s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000090s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.008660s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008704s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000778s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000809s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000929s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000964s ]
+
+[ 2017-01-09T11:07:22+08:00 ] 127.0.0.1 /index.php/Home/Index/My/TransactionGoods?t=1483931241871
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000897s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001515s ]
+ERR: 非法操作:my
+
+[ 2017-01-09T11:07:22+08:00 ] 127.0.0.1 /index.php/Home/Index/My/UserProfile
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001054s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001701s ]
+ERR: 非法操作:my
+
+[ 2017-01-09T11:07:22+08:00 ] 127.0.0.1 /index.php/Home/Index/home.html?t=1483931241884
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001037s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001653s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\money\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.048637s ]
+SQL: SELECT * FROM `wp_productinfo`  [ RunTime:0.042613s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000291s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000351s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.021034s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021098s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001526s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001585s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001531s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001602s ]
+
+[ 2017-01-09T11:23:13+08:00 ] 127.0.0.1 /index.php/Home/Index/index.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000918s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001476s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\money\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.042197s ]
+SQL: SELECT * FROM `wp_userinfo` WHERE ( uid=405 ) LIMIT 1   [ RunTime:0.040079s ]
+SQL: SHOW COLUMNS FROM `wp_accountinfo` [ RunTime:0.041427s ]
+SQL: SELECT * FROM `wp_accountinfo` WHERE ( uid=405 ) LIMIT 1   [ RunTime:0.039824s ]
+SQL: SHOW COLUMNS FROM `wp_experienceinfo` [ RunTime:0.042281s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `wp_experienceinfo` INNER JOIN wp_experience on wp_experienceinfo.eid=wp_experience.eid  WHERE ( wp_experienceinfo.uid=405 and 1483932192 < wp_experienceinfo.endtime and wp_experienceinfo.getstyle=0 ) LIMIT 1   [ RunTime:0.039556s ]
+SQL: SHOW COLUMNS FROM `wp_catproduct` [ RunTime:0.041431s ]
+SQL: SELECT * FROM `wp_catproduct`  [ RunTime:0.041063s ]
+SQL: SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.045914s ]
+SQL: SELECT * FROM `wp_productinfo`  [ RunTime:0.041518s ]
+SQL: SHOW COLUMNS FROM `wp_order` [ RunTime:0.047411s ]
+SQL: SELECT * FROM `wp_order` INNER JOIN wp_productinfo on wp_order.pid=wp_productinfo.pid INNER JOIN wp_catproduct on wp_productinfo.cid=wp_catproduct.cid  WHERE ( wp_order.uid=405 and ostaus=0 )  [ RunTime:0.045497s ]
+SQL: SHOW COLUMNS FROM `wp_newsinfo` [ RunTime:0.046401s ]
+SQL: SELECT * FROM `wp_newsinfo` WHERE ( ncategory=1 ) ORDER BY nid desc LIMIT 3   [ RunTime:0.051736s ]
+SQL: SELECT * FROM `wp_newsinfo` WHERE ( ncategory=2 ) ORDER BY nid desc LIMIT 3   [ RunTime:0.043471s ]
+SQL: SELECT * FROM `wp_newsinfo` WHERE ( ncategory=3 ) ORDER BY nid desc LIMIT 3   [ RunTime:0.041574s ]
+SQL: SHOW COLUMNS FROM `wp_webconfig` [ RunTime:0.342360s ]
+SQL: SELECT * FROM `wp_webconfig`  [ RunTime:0.039338s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000054s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000093s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.007596s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007649s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000974s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001009s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001014s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001053s ]
+
+[ 2017-01-09T11:23:13+08:00 ] 127.0.0.1 /index.php/Home/Index/My/TransactionGoods?t=1483932193651
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001080s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001874s ]
+ERR: 非法操作:my
+
+[ 2017-01-09T11:23:13+08:00 ] 127.0.0.1 /index.php/Home/Index/My/UserProfile
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001526s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002449s ]
+ERR: 非法操作:my
+
+[ 2017-01-09T11:23:14+08:00 ] 127.0.0.1 /index.php/Home/Index/home.html?t=1483932193668
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001419s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002251s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\money\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.045837s ]
+SQL: SELECT * FROM `wp_productinfo`  [ RunTime:0.043811s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000157s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000201s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.016961s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017008s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000907s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000981s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001248s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001329s ]
+
+[ 2017-01-09T11:23:53+08:00 ] 127.0.0.1 /index.php/Home/Index/index.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001330s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002011s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\money\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `wp_userinfo` [ RunTime:0.043404s ]
+SQL: SELECT * FROM `wp_userinfo` WHERE ( uid=405 ) LIMIT 1   [ RunTime:0.041749s ]
+SQL: SHOW COLUMNS FROM `wp_accountinfo` [ RunTime:0.044084s ]
+SQL: SELECT * FROM `wp_accountinfo` WHERE ( uid=405 ) LIMIT 1   [ RunTime:0.040639s ]
+SQL: SHOW COLUMNS FROM `wp_experienceinfo` [ RunTime:0.042873s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `wp_experienceinfo` INNER JOIN wp_experience on wp_experienceinfo.eid=wp_experience.eid  WHERE ( wp_experienceinfo.uid=405 and 1483932231 < wp_experienceinfo.endtime and wp_experienceinfo.getstyle=0 ) LIMIT 1   [ RunTime:0.045095s ]
+SQL: SHOW COLUMNS FROM `wp_catproduct` [ RunTime:0.042900s ]
+SQL: SELECT * FROM `wp_catproduct`  [ RunTime:0.041183s ]
+SQL: SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.347348s ]
+SQL: SELECT * FROM `wp_productinfo`  [ RunTime:0.040474s ]
+SQL: SHOW COLUMNS FROM `wp_order` [ RunTime:0.042666s ]
+SQL: SELECT * FROM `wp_order` INNER JOIN wp_productinfo on wp_order.pid=wp_productinfo.pid INNER JOIN wp_catproduct on wp_productinfo.cid=wp_catproduct.cid  WHERE ( wp_order.uid=405 and ostaus=0 )  [ RunTime:0.402839s ]
+SQL: SHOW COLUMNS FROM `wp_newsinfo` [ RunTime:0.041841s ]
+SQL: SELECT * FROM `wp_newsinfo` WHERE ( ncategory=1 ) ORDER BY nid desc LIMIT 3   [ RunTime:0.041662s ]
+SQL: SELECT * FROM `wp_newsinfo` WHERE ( ncategory=2 ) ORDER BY nid desc LIMIT 3   [ RunTime:0.040596s ]
+SQL: SELECT * FROM `wp_newsinfo` WHERE ( ncategory=3 ) ORDER BY nid desc LIMIT 3   [ RunTime:0.040993s ]
+SQL: SHOW COLUMNS FROM `wp_webconfig` [ RunTime:0.042273s ]
+SQL: SELECT * FROM `wp_webconfig`  [ RunTime:0.040518s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000068s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000110s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.008508s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008599s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000817s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000870s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001143s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001180s ]
+
+[ 2017-01-09T11:23:53+08:00 ] 127.0.0.1 /index.php/Home/Index/My/TransactionGoods?t=1483932233666
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001108s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001847s ]
+ERR: 非法操作:my
+
+[ 2017-01-09T11:23:54+08:00 ] 127.0.0.1 /index.php/Home/Index/home.html?t=1483932233679
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001077s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001830s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\wamp\www\money\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `wp_productinfo` [ RunTime:0.042114s ]
+SQL: SELECT * FROM `wp_productinfo`  [ RunTime:0.052352s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000156s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000197s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.016996s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017060s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001022s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001086s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001108s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001155s ]
+
+[ 2017-01-09T11:23:54+08:00 ] 127.0.0.1 /index.php/Home/Index/My/UserProfile
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001192s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001931s ]
+ERR: 非法操作:my
+
