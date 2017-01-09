@@ -31,6 +31,7 @@ class UserController extends Controller
         }
         $userinfo = M('userinfo');
         $user_agent = $_SERVER['HTTP_USER_AGENT'];
+		//echo $user_agent;exit;
         if (strpos($user_agent, 'MicroMessenger') === false) {
              //非微信浏览器禁止浏览
             //echo "不是微信";
@@ -88,6 +89,7 @@ class UserController extends Controller
         
         $openid=I('get.openid'); 
         $oid = I('get.oid');
+		//dump($_SESSION);
         $this->assign('openid',$openid);
         $this->assign('oid',$oid);
         $this->display();
@@ -96,7 +98,9 @@ class UserController extends Controller
     //注册
     public function register()
     {
-         $this->userlogin();
+        // $this->userlogin();
+		$code=session('code');
+		//echo $code;exit;
         if(IS_POST)
         {// 判断提交方式 做不同处理
             // 实例化User对象
@@ -104,16 +108,21 @@ class UserController extends Controller
             //检查用户名
             header("Content-type: text/html; charset=utf-8");
             //检查手机验证码
-            $code = $this->mescontent();
+            //$code = $this->mescontent();
+			$code=session('code');
             $verify = I('post.code');
-            if ($code != $verify) {
+			/* echo $code.'<br>';
+			echo $verify.'<br>'; */
+            if ($code == $verify) {
+				//echo 123;exit;
                 /*
                 *推广链接时需要在注册时添加一个获取oid的方法，添加进去，作为上线的记录。
                 */                 
                 $data['username'] = I('post.username');
                 $data['utel'] = I('post.utel');
-                $data['utime'] = date(time());
-                $data['upwd'] = md5(I('post.upwd') . date(time()));
+				$time=time();
+                $data['utime'] = date($time);
+                $data['upwd'] = md5(I('post.upwd') . date($time));
                 $data['oid']=I('post.oid');
                 $uname = $user->where('username='.$data['username'])->find();
                 
@@ -125,22 +134,31 @@ class UserController extends Controller
                         //添加对应的金额表
                         $acc['uid']=$uid;
                         $aid = M('accountinfo')->add($acc);
-                        $this->ajaxReturn(1);
+                        //$this->ajaxReturn(1);
+						session('code','');
+						$this->success("注册成功","login");
                     } else {
-                        $this->ajaxReturn(2);
+                        //$this->ajaxReturn(2);
+						$this->error("注册失败,请稍后重试");
                     }
                 }
+				//session('code','');
+				//$this->success("注册成功","/login");
+				//$this->redirect('User/login');
             }else{
-                $this->ajaxReturn(0);
+				$this->error("验证码错误");
+                //$this->ajaxReturn(0);
             }
 
         }else{
-            $oid = I('get.oid');
+			session('code','');
+			$this->error("注册失败,请稍后重试");
+            /* $oid = I('get.oid');
             $com = M('userinfo')->field('comname,uid')->where('uid='.$oid)->find();         
             $this->assign('com',$com);
-            $this->display();           
+            $this->display();  */          
         }
-
+		
     }
     //设置初始密码，密码后台可以修改。这里需要创建资金表，创建详细信息表。
     public function myreg(){
@@ -180,26 +198,31 @@ class UserController extends Controller
     public function smsverify()
     {
         $code = $this->mescontent();
-        $post_data = array();
+		session('code',$code);
+		//$_SESSION['code']=$code;
+        /* $post_data = array();
         $post_data['userid'] = '2571';
         $post_data['password'] = 'zjy100200';
         $post_data['account'] = 'zj46602437';
-        $post_data['content'] = '【微盘开发】您的验证码是:' . $code;
+        $post_data['content'] = '【微盘开发】您的验证码是:' . $code;*/
         $post_data['mobile'] = $_REQUEST['tel'];
-        $post_data['sendtime'] = ''; //不定时发送，值为0，定时发送，输入格式YYYYMMDDHHmmss的日期值
-        $url = 'http://118.145.18.236:9999/sms.aspx?action=send';
-        $o = '';
+        /*$post_data['sendtime'] = ''; //不定时发送，值为0，定时发送，输入格式YYYYMMDDHHmmss的日期值 */
+        $url = 'http://106.ihuyi.com/webservice/sms.php?method=Submit&account=cf_zhongxuan&password=6e76d190447c879d7b02a46cc21fde36&mobile='.$post_data['mobile'].'&content=您的验证码是：'.$code.'。请不要把验证码泄露给其他人。';
+		
+		file_get_contents($url);
+		echo 'yes';
+        /*$o = '';
         foreach ($post_data as $k => $v) {
             $o .= "$k=" . urlencode($v) . '&';
         }
         $post_data = substr($o, 0, -1);
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_POST, 1);
+        //curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
         //curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); //如果需要将结果直接返回到变量里，那加上这句。
-        $result = curl_exec($ch);
+        $result = curl_exec($ch);*/
 
     }
 

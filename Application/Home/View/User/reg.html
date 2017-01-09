@@ -11,7 +11,7 @@
                 </nav>
             </header>
             <if condition="$openid eq ''">
-                <form id="reviseForm" class="i-form" method="post" action="{:U('User/register')}" >
+                <form id="reviseForm" class="i-form" method="post" action="{:U('User/register')}" id="form1">
                     <input type="hidden" name="puid" value="{$puid}">
                     <input type="hidden" name="oid" value="{$oid}">
                     <ul class="form-box">
@@ -84,15 +84,31 @@
     <script type="text/javascript">
         $(document).ready(function(){
             $("#mes").click(function(){
-                alert('短信已经发送，请注意查收');
-                $.ajax({
+			
+               if(/^1[34578]\d{9}$/.test($("[name='utel']").val())){
+				 $.ajax({
                     type: 'POST',
                     url: "{:U('User/smsverify')}",
                     data: {
                         tel:$("[name='utel']").val(),
                     },
-                    dataType: "json"
+                    dataType: "json",
+					success:function(data){
+						if(data=='yes'){
+							 alert('短信已经发送，请注意查收');
+							 $('#mes').attr('disabled',true);
+							 $('#mes').attr('style','background-color:gray');
+						}else{
+							 alert('发送失败,请稍后再试');
+						}
+					}
                 });
+			   
+			   }else{
+					alert('请输入正确的手机号');
+					
+			   }
+               
             });
         });
     </script>
@@ -155,12 +171,14 @@
             });//end blur
             //提交，最终验证。
             $('#send').click(function(){
+				
                 $("form :input.text").trigger('blur');
                 var numError = $('form .onError').length;
                 if(numError){
                     return false;
                 }
-                alert("注册成功");
+				$('#form1').submit();
+                
             });
             //服务条款效果
             $("#btnBook").click(function(){
