@@ -98,7 +98,7 @@ class IndexController extends CommonController {
     			array_push($tong, $goods[$k]);
     		}
     	}
-    	unset($you['2'],$yin['2'],$tong['2']);
+    	//unset($you['2'],$yin['2'],$tong['2']);
     	$you['0']['uprice'] > $you['1']['uprice'] ?$you1 = $you['0']['pid']:$you1 = $you['1']['pid'];
     	$tong['0']['uprice'] > $tong['1']['uprice'] ?$tong1 = $tong['0']['pid']:$tong1 = $tong['1']['pid'];
     	$yin['0']['uprice'] > $yin['1']['uprice'] ?$yin1 = $yin['0']['pid']:$yin1 = $yin['1']['pid'];
