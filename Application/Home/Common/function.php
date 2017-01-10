@@ -23,7 +23,7 @@ function orderhandle($parameter){
     $ordid=$parameter['order_no'];
     $data['isverified']  =1;
     $Ord=M('Balance');
-    $uid = $Ord->where('balanceno='.$ordid)->getField('uid');
+    $uid = $Ord->where('bpno='.$ordid)->getField('uid');
     //充值金额
     $data['bpprice']  = $parameter['order_amount'];
 
