@@ -30,7 +30,6 @@ function orderhandle($parameter){
     $balance = $balance + $parameter['order_amount'];
     $da['balance'] = $balance;
     //更新总账户
-    dump(D('Accountinfo')->where("uid=".$uid)->save($da));exit;
     D('Accountinfo')->where("uid=".$uid)->save($da);
     //更新充值金额及状态
     $Ord->where('bpno='.$ordid)->save($data);
