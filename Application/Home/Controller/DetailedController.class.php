@@ -176,13 +176,20 @@ class DetailedController extends CommonController {
         	$s['errors'] = '您已经购买了此产品';
             $this->ajaxReturn($s); 
             //echo "<script>alert('亲，您已经购买了此产品')</script>";
-        } 
+        }
         else{
         //获取账户余额
         $user=M('accountinfo')->where('uid='.$uid)->find();
         //根据商品id查询商品
         $goods=M('productinfo')->where('pid='.$mypid)->find();
-
+        $remained = $user['balance']-$myfy-$mysxf;
+        if($remained < 0)
+        {
+            $s['success'] = 0;
+            $s['errors'] = '您的账户余额不足，请先充值！';
+            $this->ajaxReturn($s); 
+            //echo "<script>alert('亲，您已经购买了此产品')</script>";
+        } 
         //随机生成订单号
         $orderno=  $this->build_order_no();
         $order=M('order');
