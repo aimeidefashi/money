@@ -25,8 +25,8 @@ return array(
     'zhongyun_pay'=>array(
         'pay_memberid' =>'11489',
         'pay_bankcode' =>'YeePayWx',
-        'pay_notifyurl' =>'http://hljzxsp.com/notify_url.php',
-        'pay_callbackurl' =>'http://hljzxsp.com/page.php',
+        'pay_notifyurl' =>'http://hljzxsp.com/Home/Pay/notify_url.php',
+        'pay_callbackurl' =>'http://hljzxsp.com//Home/Pay/return_url.php',
         'Md5key' =>'os29EkDKntXQh3yXRdnlVfaMKcyPXk',
         'tjurl' =>'http://zf.cnzypay.com/Pay_Index.html',
     ),

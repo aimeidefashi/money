@@ -379,29 +379,28 @@ class UserController extends Controller
         $this->assign('suer', $suer);
         $this->assign('style','1');
         if (IS_POST) {
-        	$params = json_decode(file_get_contents('php://input'),true);
-             $date['bpprice']=$params["DepositAmount"];
-             $date['bpno']=$this->build_order_no();
-             $date['uid']=$uid;
-             $date['bptype']='充值';
-             $date['bptime']=date(time());
-             $date['remarks']='开始充值';
-             $balanceid=M('balance')->add($date);
-             if ($balanceid) {
-                $balc=M('balance')->where('bpid='.$balanceid)->find();
-                $this->assign('balc',$balc);
-             }
-             $param_arr = array();
-             $param_arr['pay_orderid'] = $date['bpno'];
-             $param_arr['pay_amount'] = $date['bpprice'];
-
-             $pay_controller = A('Pay');
-             $pay_controller->zhongyunpay($param_arr);
-             // $s['id'] = $balanceid;
-             // $s['success']=1;
-             // $s['errors'] = 0;
-             // $this->ajaxReturn($s);
-             //$this->assign('style','2');
+        	// $params = json_decode(file_get_contents('php://input'),true);
+			$date['bpprice']=I("tfee1");
+			$date['bpno']=$this->build_order_no();
+			$date['uid']=$uid;
+			$date['bptype']='充值';
+			$date['bptime']=date(time());
+			$date['remarks']='开始充值';
+			$balanceid=M('balance')->add($date);
+			if ($balanceid) {
+			$balc=M('balance')->where('bpid='.$balanceid)->find();
+			$this->assign('balc',$balc);
+			}
+			$param_arr = array();
+			$param_arr['pay_orderid'] = $date['bpno'];
+			$param_arr['pay_amount'] = $date['bpprice'];
+			$pay_controller = A('Pay');
+			$pay_controller->zhongyunpay($param_arr);
+			// $s['id'] = $balanceid;
+			// $s['success']=1;
+			// $s['errors'] = 0;
+			// $this->ajaxReturn($s);
+			//$this->assign('style','2');
         }
         $this->display();
     }
