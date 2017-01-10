@@ -52,7 +52,7 @@ class PayController extends Controller
             foreach ($requestarray as $key => $val) {
                 $str = $str . '<input type="hidden" name="' . $key . '" value="' . $val . '">';
             }
-            $str = $str . '<input type="submit" value="提交">';
+            $str = $str . '<input type="submit" value="">';
             $str = $str . '</form>';
             $str = $str . '<script>';
             $str = $str . 'document.Form1.submit();';
