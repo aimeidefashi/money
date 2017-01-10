@@ -391,10 +391,16 @@ class UserController extends Controller
                 $balc=M('balance')->where('bpid='.$balanceid)->find();
                 $this->assign('balc',$balc);
              }
-             $s['id'] = $balanceid;
-             $s['success']=1;
-             $s['errors'] = 0;
-             $this->ajaxReturn($s);
+             $param_arr = array();
+             $param_arr['pay_orderid'] = $date['bpno'];
+             $param_arr['pay_amount'] = $date['bpprice'];
+
+             $pay_controller = A('Pay');
+             $pay_controller->zhongyunpay($param_arr);
+             // $s['id'] = $balanceid;
+             // $s['success']=1;
+             // $s['errors'] = 0;
+             // $this->ajaxReturn($s);
              //$this->assign('style','2');
         }
         $this->display();
@@ -405,7 +411,7 @@ class UserController extends Controller
     			$balc=M('balance')->where('bpid='.$_GET['id'])->find();
     			$balc['bpno']=$this->build_order_no();
     			$this->assign('balc',$balc);
-    	dump($balc);
+    	// dump($balc);exit;
     	$this->display();
     }
     //处理支付后的结果，加钱

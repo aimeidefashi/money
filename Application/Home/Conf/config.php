@@ -22,6 +22,14 @@ return array(
         'return_url' =>'http://www.tuojingtz.com/index.php/home/Pay/returnurl',
         'show_url' => 'http://www.tuojingtz.com/index.php/home/Index/index'
     ),
+    'zhongyun_pay'=>array(
+        'pay_memberid' =>'11489',
+        'pay_bankcode' =>'YeePayWx',
+        'pay_notifyurl' =>'http://hljzxsp.com/notify_url.php',
+        'pay_callbackurl' =>'http://hljzxsp.com/page.php',
+        'Md5key' =>'os29EkDKntXQh3yXRdnlVfaMKcyPXk',
+        'tjurl' =>'http://zf.cnzypay.com/Pay_Index.html',
+    ),
 
     'stspage' => 'Home/User/memberinfo'
 
