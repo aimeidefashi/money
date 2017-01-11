@@ -317,6 +317,15 @@ class UserController extends Controller
             $bpprice = $params['bpprice'];
             if($bpwd['pwd']==md5($pwd)){
                 if(strlen($banknumber)==16||strlen($banknumber)==19){
+                    $user=M('accountinfo')->where('uid='.$uid)->find();
+                    $remained = $user['balance']-$bpprice;
+                    if($remained < 0)
+                    {
+                        $s['success'] = 0;
+                        $s['errors'] = '您的账户余额不足，请先充值！';
+                        $this->ajaxReturn($s); 
+                        //echo "<script>alert('亲，您已经购买了此产品')</script>";
+                    } 
                     $detailed = A('Home/Detailed');
                     //提现表
                     $balances['bptype'] = '提现';
