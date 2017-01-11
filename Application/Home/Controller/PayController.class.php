@@ -126,7 +126,8 @@ class PayController extends Controller
         ///////////////////////////////////////////////////////
         if ($sign == $_REQUEST["sign"]) {
             if ($_REQUEST["returncode"] == "00") {
-                   $this->success('请等待...', U('Index/index'));
+                redirect(U('Index/index'), 2, '页面跳转中...');
+                   // $this->success('请等待...', U('Index/index'));
             }
         }
     }
