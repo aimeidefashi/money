@@ -46,7 +46,7 @@
               <input id="n-pwd" class="f-input" type="password" maxlength="20" placeholder="请输入密码" name="password">
             </li>
           </ul>
-		  <div style="float:right;"><a href="{:U('User/reg',array('openid'=>$_GET['openid']))}" style="color:#daac33">还没有账户,立即注册</a></div>
+		  <div style="float:right;"><a href="reg.html?openid=<?php echo $_GET['openid']?>" style="color:#daac33">还没有账户,立即注册</a></div>
           <input type="submit" value="立即登录" class="f-sub">
           <div class="forgot"><span class="fl"></span><span class="fr"></span></div>
         </form>
