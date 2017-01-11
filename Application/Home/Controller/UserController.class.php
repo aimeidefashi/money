@@ -311,7 +311,7 @@ class UserController extends Controller
             $branch = $params['branch'];
             $busername = $params['busername'];
             $bpprice = $params['bpprice'];
-            if($bpwd['pwd']==$pwd){
+            if($bpwd['pwd']==md5($pwd)){
                 if(strlen($banknumber)==16||strlen($banknumber)==19){
                     $detailed = A('Home/Detailed');
                     //提现表
