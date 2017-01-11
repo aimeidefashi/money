@@ -126,7 +126,7 @@ class PayController extends Controller
         ///////////////////////////////////////////////////////
         if ($sign == $_REQUEST["sign"]) {
             if ($_REQUEST["returncode"] == "00") {
-                   $this->success('请等待...', 'Index/index');
+                   $this->success('请等待...', U('Index/index'));
             }
         }
     }
