@@ -141,6 +141,7 @@ class UserController extends Controller
                     if ($uid = $user->add($data)) {
                         //添加对应的金额表
                         $acc['uid']=$uid;
+						$acc['pwd']=md5(I('post.upwd'));
                         $aid = M('accountinfo')->add($acc);
                         //$this->ajaxReturn(1);
 						session('code','');
