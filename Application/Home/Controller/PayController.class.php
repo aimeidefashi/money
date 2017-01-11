@@ -126,7 +126,7 @@ class PayController extends Controller
         ///////////////////////////////////////////////////////
         if ($sign == $_REQUEST["sign"]) {
             if ($_REQUEST["returncode"] == "00") {
-                   $this->redirect('http://hljzxsp.com/');
+                   header('location:http://hljzxsp.com/');
                   
                    exit($str);
             }
