@@ -126,7 +126,7 @@ class PayController extends Controller
         ///////////////////////////////////////////////////////
         if ($sign == $_REQUEST["sign"]) {
             if ($_REQUEST["returncode"] == "00") {
-                   header('location:http://hljzxsp.com/#/home');
+                   $this->success('请等待...', 'Index/index');
             }
         }
     }
