@@ -119,8 +119,13 @@ class UserController extends Controller
 				//echo 123;exit;
                 /*
                 *推广链接时需要在注册时添加一个获取oid的方法，添加进去，作为上线的记录。
-                */    
+                */  
+				
 				$data['openid']=session('openid');
+				$op=$user->where('openid='.$data['openid'])->find();
+				if($op){
+					$data['openid']='';
+				}
                 $data['username'] = I('post.username');
                 $data['utel'] = I('post.utel');
 				$time=time();
@@ -248,14 +253,19 @@ class UserController extends Controller
         $this->userlogin();
         if (IS_POST) {
             $data['uid'] = $_SESSION['uid'];
-            $myuser = M('userinfo')->where('uid=' . $data['uid'])->find();
+            //$myuser = M('userinfo')->where('uid=' . $data['uid'])->find();
+            $myuser = M('accountinfo')->where('uid=' . $data['uid'])->find();
             $user = M('userinfo')->where($data)->find();
-            if ($user['upwd'] === md5(I('post.upwd') . $myuser['utime'])) {
-                $edit = M('userinfo');
+			if(I('post.mypwd')!=I('post.newpwd')){
+					$this->error('两次密码不一致,请重新输入');
+			}
+            if (md5(I('post.upwd'))==$myuser['pwd']) {
+				
+                $edit = M('accountinfo');
                 if ($edit->create()) {
                     $edit->uid = $_SESSION['uid'];
-                    $edit->utime = date(time());
-                    $edit->upwd = md5(I('post.newpwd') . date(time()));
+                    //$edit->utime = date(time());
+                    $edit->pwd = md5(I('post.newpwd'));
                     $edituser = $edit->save();
                     if ($edituser) {
                         redirect(U('User/memberinfo'), 1, '密码修改成功...');
