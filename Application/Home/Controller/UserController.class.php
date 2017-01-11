@@ -49,6 +49,7 @@ class UserController extends Controller
                 //echo $_GET['openid'];
                 //这里做一个判断，客户没有注册，则直接去注册页面，否则去登录页面。
                 $openid['openid']=$_GET['openid'];
+				session('openid',$openid['openid']);
                 $openid['nickname']=$_GET['nickname'];
                 $openid['address']=$_GET['address'];
                 $openid['portrait']=$_GET['portrait'];
@@ -89,7 +90,8 @@ class UserController extends Controller
         
         $openid=I('get.openid'); 
         $oid = I('get.oid');
-		//dump($_SESSION);
+		
+		
         $this->assign('openid',$openid);
         $this->assign('oid',$oid);
         $this->display();
@@ -118,7 +120,7 @@ class UserController extends Controller
                 /*
                 *推广链接时需要在注册时添加一个获取oid的方法，添加进去，作为上线的记录。
                 */    
-				$data['openid']=I('post.openid');
+				$data['openid']=session('openid');
                 $data['username'] = I('post.username');
                 $data['utel'] = I('post.utel');
 				$time=time();
@@ -137,6 +139,7 @@ class UserController extends Controller
                         $aid = M('accountinfo')->add($acc);
                         //$this->ajaxReturn(1);
 						session('code','');
+						session('openid','');
 						$this->success("注册成功","login");
                     } else {
                         //$this->ajaxReturn(2);
