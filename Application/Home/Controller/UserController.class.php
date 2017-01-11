@@ -117,7 +117,8 @@ class UserController extends Controller
 				//echo 123;exit;
                 /*
                 *推广链接时需要在注册时添加一个获取oid的方法，添加进去，作为上线的记录。
-                */                 
+                */    
+				$data['openid']=I('post.openid');
                 $data['username'] = I('post.username');
                 $data['utel'] = I('post.utel');
 				$time=time();

@@ -39,14 +39,14 @@
           <ul class="form-box">
                 <li class="f-line clearfix" style="">
                 <label class="f-label">登录号码</label>
-                <input id="c-pwd" class="f-input" type="text" value="" maxlength="20" placeholder="请输入账号" name="username">
+                <input id="c-pwd" class="f-input" type="text" value="{$username}" maxlength="20" placeholder="请输入账号" name="username">
                </li>
             <li class="f-line clearfix">
               <label class="f-label">登录密码</label>
               <input id="n-pwd" class="f-input" type="password" maxlength="20" placeholder="请输入密码" name="password">
             </li>
           </ul>
-		  <div style="float:right;"><a href="{:U('User/reg')}" style="color:#daac33">还没有账户,立即注册</a></div>
+		  <!-- <div style="float:right;"><a href="{:U('User/reg')}" style="color:#daac33">还没有账户,立即注册</a></div> -->
           <input type="submit" value="立即登录" class="f-sub">
           <div class="forgot"><span class="fl"></span><span class="fr"></span></div>
         </form>
