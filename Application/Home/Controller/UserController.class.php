@@ -251,7 +251,8 @@ class UserController extends Controller
     public function edituser()
     {
         $this->userlogin();
-        if (IS_POST) {
+		//var_dump($_POST);
+        if ($_POST) {
             $data['uid'] = $_SESSION['uid'];
             //$myuser = M('userinfo')->where('uid=' . $data['uid'])->find();
             $myuser = M('accountinfo')->where('uid=' . $data['uid'])->find();
@@ -259,20 +260,22 @@ class UserController extends Controller
 			if(I('post.mypwd')!=I('post.newpwd')){
 					$this->error('两次密码不一致,请重新输入');
 			}
+			
             if (md5(I('post.upwd'))==$myuser['pwd']) {
 				
                 $edit = M('accountinfo');
-                if ($edit->create()) {
+               
                     $edit->uid = $_SESSION['uid'];
                     //$edit->utime = date(time());
                     $edit->pwd = md5(I('post.newpwd'));
                     $edituser = $edit->save();
                     if ($edituser) {
-                        redirect(U('User/memberinfo'), 1, '密码修改成功...');
+                        //redirect(U('User/memberinfo'), 1, '密码修改成功...');
+						$this->error('密码修改成功');
                     } else {
                         $this->error('密码修改失败，请重新修改');
                     }
-                }
+               
             } else {
                 $this->error('原密码不正确，请重新输入');
             }
