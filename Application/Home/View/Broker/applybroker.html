@@ -11,21 +11,29 @@
       </nav>
     </header>
     <form id="reviseForm" class="i-form" method="post" enctype="multipart/form-data" action="{:U('Broker/applybroker')}">
-      <ul class="form-box">
-        <li class="f-line clearfix">
-          <label class="f-label">姓名</label>
-          <input id="c-pwd" class="f-input" type="text" maxlength="10" placeholder="请输入姓名" name="mname">
+      <ul class="form-box" >
+        <li class="f-line clearfix" style="margin-top:4px">
+          <label class="f-label">经纪人姓名</label>
+          <input id="c-pwd" class="f-input" type="text" maxlength="10" value="{$username}" placeholder="请输入姓名" name="mname" style="border:1px solid #c5c5c5;border-radius:4px;width:70%;color:black">
         </li>
-        <li class="f-line clearfix">
-          <label class="f-label">身份证</label>
-          <input id="b-pwd" class="f-input" type="text" maxlength="18" placeholder="请输入身份证号" name="brokerid">
+        <li class="f-line clearfix" style="margin-top:4px">
+          <label class="f-label">登录密码</label>
+          <input id="b-pwd" class="f-input" type="password" maxlength="18" placeholder="请输入登录密码" name="pwd" style="border:1px solid #c5c5c5;border-radius:4px;width:70%;color:black">
         </li>
-
-        <li class="f-line clearfix">
-          <label class="f-label">身份证照片</label>
-          <img src="{$idcover.idcover}"/>
-          <input type="file"  class="f-sub2" name="photoid">
+		<li class="f-line clearfix" style="margin-top:4px">
+          <label class="f-label">经纪人手机</label>
+          <input id="phone"  class="f-input" type="text" maxlength="18" value="{$tel}"  placeholder="请输入手机号" name="phone" style="border:1px solid #c5c5c5;border-radius:4px;width:70%;color:black">
         </li>
+		<li class="f-line clearfix" style="margin-top:4px">
+          <label class="f-label">机构编码</label>
+          <input id="b-bianma" class="f-input" type="text" maxlength="18" placeholder="" name="brokerid" style="border:1px solid #c5c5c5;border-radius:4px;width:70%;color:black">
+        </li>
+		<li class="f-line clearfix" style="margin-top:4px;">
+          <label class="f-label">验证码</label>
+          <input id="b-code" class="f-input" type="text" maxlength="18" placeholder="" name="code" style="border:1px solid #c5c5c5;border-radius:4px;width:30%;color:black">
+		  <input class="f-input" name="yzm" type="button" value="获取验证码" style="color:white;background-color:#daac33;border:1px solid #c5c5c5;border-radius:4px;width:30%;float:right" onclick="sms()" id="">
+        </li>
+      
       </ul>
       <div id='btnAgree'>
         <div><input name="" type="checkbox" value="" checked />&nbsp;<span>我已阅读和同意<span id='btnBook'>《服务协议及隐私条款》</span></span></div>   
@@ -34,4 +42,43 @@
     </form>
   </div>
 </div>
+
+<script>
+	var str=$("#phone").val();
+	//alert(str);
+	$('input[name=yzm]').attr('onclick','sms('+str+')');
+	$("#phone").val(str.substr(0,3)+"****"+str.substr(7,11));
+	$("#phone").change(function(){
+		var n=$('#phone').val();
+		$('input[name=yzm]').attr('onclick','sms('+n+')');
+	})
+	function sms(str){
+		
+		if(/^1[34578]\d{9}$/.test(str)){
+			
+			$.ajax({
+				
+				url:"{:U('User/smsverify')}",
+				data:{'tel':str},
+				type:"post",
+				success:function(data){
+					if(data=='yes'){
+						alert("短信发送成功")
+						$('input[name=yzm]').attr('style','background-color:gray');
+						$('input[name=yzm]').attr('disabled','true');
+					}
+				}
+				
+			})
+		
+		}else{
+			
+			alert("请输入正确的手机号")
+		
+		}
+		
+	
+	}
+
+</script>
 </block>

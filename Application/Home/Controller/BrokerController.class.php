@@ -4,9 +4,10 @@ use Think\Controller;
 class BrokerController extends Controller {
 	//申请经纪人
     public function applybroker(){
+		
 		if(IS_POST){
              header("Content-type: text/html; charset=utf-8");
-             $upload = new \Think\Upload();// 实例化上传类
+            /*  $upload = new \Think\Upload();// 实例化上传类
                 $upload->maxSize   =     3145728 ;// 设置附件上传大小
                 $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
                 $upload->rootPath  =     'Public/Uploads/'; // 设置附件上传根目录
@@ -17,15 +18,24 @@ class BrokerController extends Controller {
                   foreach($info as $file){      
                        $idcover= $file['savepath'].$file['savename'];    
                 }}
-
+ */
             $data['uid']=$_SESSION['uid'];
             $obj=M('userinfo')->where($data)->find();
-            if ($obj['agenttype']==0) {
+            if ($obj['agenttype']==0) {//0 未提交申请
+				$code=session('code');
+				if($code!=I('post.code')){
+					$this->error("验证码错误");
+				}
+				//$result['upwd'] === md5(I('post.password') . $result['utime'])
+				if($obj['upwd']!=md5(I('post.pwd'). $obj['utime'])){
+					$this->error("登录密码错误");
+				}
+				
                 $user=D('userinfo')->where($data)->find();
-                $data['did']=$user['oid'];
+                $data['pid']=$user['oid'];
                 $data['mname']=I('post.mname');
                 $data['brokerid']=I('post.brokerid');
-                $data['photoid']=$idcover;
+                //$data['photoid']=$idcover;
                 $manager=M('managerinfo')->where('uid='.$data['uid'])->select();
                  
                 if ($manager>0) {
@@ -44,15 +54,19 @@ class BrokerController extends Controller {
                    $this->error('提交失败');
                 }  
             }else{
-                $this->error('正在审核中,请勿重复提交',U('User/memberinfo'));
+				//申请提交审核
+                $this->error('正在审核中,请勿重复提交',U('/#/my'));
             }
             
         }else{
              $data['uid']=$_SESSION['uid'];
              $obj=M('userinfo')->where($data)->find();
-             if ($obj['agenttype']==1) {
-                $this->error('正在审核中,请勿重复提交',U('User/memberinfo'));
+             if ($obj['agenttype']==1) {//申请提交审核
+                $this->error('正在审核中,请勿重复提交',U('/#/my'));
                }else{
+				//$yc=substr_replace($obj['utel'])
+				$this->assign('username',$obj['username']);
+				$this->assign('tel',$obj['utel']);
                 $this->display();
              }
         }
