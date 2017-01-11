@@ -10,7 +10,7 @@
                     <h3 class="list-title">注册</h3>
                 </nav>
             </header>
-            <if condition="$openid eq ''">
+            <!--<if condition="$openid eq ''">-->
                 <form id="reviseForm" class="i-form" method="post" action="{:U('User/register')}" id="form1">
                     <input type="hidden" name="puid" value="{$puid}">
                     <input type="hidden" name="oid" value="<?php echo $_GET['uid']?>">
@@ -58,11 +58,13 @@
                             内容内容内容内容内容内容内容<br>
                         </div>
                     </div>
+					<input type="hidden" name="openid" value="{$openid}">
                     <input type="submit" value="完成注册" class="f-sub" id='send'>
                     <div class="forgot"><span class="fl"><a href="{:U('User/login')}">已有账号，立即登录</a></span></div>
                 </form>
+				<!--
                 <else/>
-
+ 
                 <form  class="i-form" method="post" action="{:U('User/myreg')}" >
                     <input type="hidden" name="oid" value="{$oid}">
                     <input type="hidden" name="openid" value="{$openid}">
@@ -75,7 +77,7 @@
                     <input type="submit" value="注册" class="f-sub" id='send'>
                 </form>
 
-            </if>
+            </if>-->
         </div>
     </div>
     <script src="__JS__/jquery-2.1.1.min.js"></script>
