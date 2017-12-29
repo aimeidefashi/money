@@ -22,11 +22,7 @@
     <script src="/js/swiper.min.js"></script>
     
     <script src="/js/all.js"></script>
-	<script>
-	$('.zhang').click(function(){
-	alert(123)
-	})
-	</script>
+	
 </head>
 <body id="weipan"
       ng-app="weipan"
@@ -71,7 +67,7 @@
     <div ui-yield-to="modals"></div>
 	
 	<!-- uiIf: modalTransactionPassword -->
-    <div class="modal"  ui-if='modalTransactionPassword' ui-state='modalTransactionPassword' style="padding-top: 90px; hide">
+    <div class="modal"  ui-if='modalTransactionPassword' ui-state='modalTransactionPassword' style="padding-top: 90px;display:none">
         <div class="modal-backdrop in"></div>
         <div class="modal-dialog">
             <div class="modal-content">
@@ -85,7 +81,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-12 field-label" focus-input>
+                        <div class="col-xs-12 field-label" focus-input style="display:none">
                             <a class="btn btn-sm" href="#/forgetPassword" style="font-size:12px; color:#D7B983;">忘记交易密码</a>
                         </div>
                     </div>

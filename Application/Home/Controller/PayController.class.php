@@ -15,7 +15,122 @@ class PayController extends Controller
         $result = D('balance')->add($data);
 
     }
-
+    public function zhongyunpay($data)
+    {
+        $payconfig = C('zhongyun_pay');
+        $pay_memberid = $payconfig['pay_memberid'];   //商户ID
+        $pay_orderid = $data['pay_orderid'];    //订单号
+        $pay_amount = $data['pay_amount'];    //交易金额
+        $pay_applydate = date("Y-m-d H:i:s");  //订单时间
+        $pay_bankcode = $payconfig['pay_bankcode'];   //银行编码
+        $pay_notifyurl = $payconfig['pay_notifyurl'];   //服务端返回地址
+        $pay_callbackurl = $payconfig['pay_callbackurl'];  //页面跳转返回地址
+        $Md5key = $payconfig['Md5key'];   //密钥
+        $tjurl = $payconfig['tjurl'];   //提交地址
+        
+        $requestarray = array(
+                "pay_memberid" => $pay_memberid,
+                "pay_orderid" => $pay_orderid,
+                "pay_amount" => $pay_amount,
+                "pay_applydate" => $pay_applydate,
+                "pay_bankcode" => $pay_bankcode,
+                "pay_notifyurl" => $pay_notifyurl,
+                "pay_callbackurl" => $pay_callbackurl
+            );
+            
+            ksort($requestarray);
+            reset($requestarray);
+            $md5str = "";
+            foreach ($requestarray as $key => $val) {
+                $md5str = $md5str . $key . "=>" . $val . "&";
+            }
+            // echo($md5str . "key=" . $Md5key."<br>");
+            $sign = strtoupper(md5($md5str . "key=" . $Md5key)); 
+            $requestarray["pay_md5sign"] = $sign;
+            
+            $str = '<form id="Form1" name="Form1" method="post" action="' . $tjurl . '">';
+            foreach ($requestarray as $key => $val) {
+                $str = $str . '<input type="hidden" name="' . $key . '" value="' . $val . '">';
+            }
+            $str = $str . '<input type="submit" value="">';
+            $str = $str . '</form>';
+            $str = $str . '<script>';
+            $str = $str . 'document.Form1.submit();';
+            $str = $str . '</script>';
+            exit($str);
+    }
+    public function notify_url()
+    {
+        $payconfig = C('zhongyun_pay');
+        $ReturnArray = array( // 返回字段
+            "memberid" => $_REQUEST["memberid"], // 商户ID
+            "orderid" =>  $_REQUEST["orderid"], // 订单号
+            "amount" =>  $_REQUEST["amount"], // 交易金额
+            "datetime" =>  $_REQUEST["datetime"], // 交易时间
+            "returncode" => $_REQUEST["returncode"]
+        );
+      
+        $Md5key = $payconfig['Md5key'];
+        //$sign = $this->md5sign($Md5key, $ReturnArray);
+        
+        ///////////////////////////////////////////////////////
+        ksort($ReturnArray);
+        reset($ReturnArray);
+        $md5str = "";
+        foreach ($ReturnArray as $key => $val) {
+            $md5str = $md5str . $key . "=>" . $val . "&";
+        }
+        $sign = strtoupper(md5($md5str . "key=" . $Md5key)); 
+        ///////////////////////////////////////////////////////
+        // if ($sign == $_REQUEST["sign"]) {
+        if ($sign == $_REQUEST["sign"]) {
+            if ($_REQUEST["returncode"] == "00") {
+                $parameter = array(
+                    "order_no"     => $_REQUEST["orderid"], //商户订单编号；
+                    "order_amount"     => $_REQUEST["amount"],    //交易金额；
+                    "trade_status"     => $_REQUEST["returncode"], //交易状态
+                );
+                if(!checkorderstatus($order_no)){
+                    orderhandle($parameter);
+                    //进行订单处理，并传送从支付宝返回的参数；
+                }
+                //支付成功跳转个人中心
+               $str = "交易成功！订单号：".$_REQUEST["orderid"];
+               file_put_contents("success.txt",$str."\n", FILE_APPEND);
+               exit("ok");
+            }
+        }   
+    }
+    public function return_url()
+    {
+        $payconfig = C('zhongyun_pay');
+        $ReturnArray = array( // 返回字段
+            "memberid" => $_REQUEST["memberid"], // 商户ID
+            "orderid" =>  $_REQUEST["orderid"], // 订单号
+            "amount" =>  $_REQUEST["amount"], // 交易金额
+            "datetime" =>  $_REQUEST["datetime"], // 交易时间
+            "returncode" => $_REQUEST["returncode"]
+        );
+      
+        $Md5key = $payconfig['Md5key'];
+        //$sign = $this->md5sign($Md5key, $ReturnArray);
+        
+        ///////////////////////////////////////////////////////
+        ksort($ReturnArray);
+        reset($ReturnArray);
+        $md5str = "";
+        foreach ($ReturnArray as $key => $val) {
+            $md5str = $md5str . $key . "=>" . $val . "&";
+        }
+        $sign = strtoupper(md5($md5str . "key=" . $Md5key)); 
+        ///////////////////////////////////////////////////////
+        if ($sign == $_REQUEST["sign"]) {
+            if ($_REQUEST["returncode"] == "00") {
+                redirect(U('Index/index'), 2, '页面跳转中...');
+                   // $this->success('请等待...', U('Index/index'));
+            }
+        }
+    }
     //提交类
     public function dopay()
     {
@@ -23,7 +138,7 @@ class PayController extends Controller
         /////////////////////////////////接收表单提交参数//////////////////////////////////////
         ////////////////////////To receive the parameter form HTML form//////////////////////
         $pay_config = C('pay_config');
-       $merchant_code = $pay_config['merchant_code'];
+        $merchant_code = $pay_config['merchant_code'];
         $service_type = $pay_config['service_type'];
         $interface_version = $pay_config['interface_version'];
         $sign_type = $pay_config['sign_type'];
@@ -144,7 +259,7 @@ class PayController extends Controller
         //注：以下的key值必须与商家后台设置的支付密钥保持一致
         //Note：The key value must be consistent with which you had set on Dinpay's Merchant System.
 
-        $key = "wangbing123456789321";
+        $key = "os29EkDKntXQh3yXRdnlVfaMKcyPXk";
 
         $signStr = $signStr."key=".$key;
         $sign = md5($signStr);
@@ -243,7 +358,7 @@ class PayController extends Controller
         //注：以下的key值必须与商家后台设置的支付密钥保持一致
         //Note：The key value must be consistent with which you had set on Dinpay's Merchant System.
 
-        $key="wangbing123456789321";
+        $key="os29EkDKntXQh3yXRdnlVfaMKcyPXk";
 
         $signStr = $signStr."key=".$key;
         $sign = md5($signStr);
@@ -358,7 +473,7 @@ class PayController extends Controller
         //注：以下的key值必须与商家后台设置的支付密钥保持一致
         //Note：The key value must be consistent with which you had set on Dinpay's Merchant System.
 
-        $key="wangbing123456789321";
+        $key="os29EkDKntXQh3yXRdnlVfaMKcyPXk";
 
         $signStr = $signStr."key=".$key;
         $sign = md5($signStr);

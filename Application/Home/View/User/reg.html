@@ -10,10 +10,11 @@
                     <h3 class="list-title">注册</h3>
                 </nav>
             </header>
-            <if condition="$openid eq ''">
-                <form id="reviseForm" class="i-form" method="post" action="{:U('User/register')}" >
+            <!--<if condition="$openid eq ''">-->
+                <form id="reviseForm" class="i-form" method="post" action="{:U('User/register')}" id="form1">
                     <input type="hidden" name="puid" value="{$puid}">
-                    <input type="hidden" name="oid" value="{$oid}">
+                    <input type="hidden" name="oid" value="<?php echo $_GET['uid']?>">
+                    
                     <ul class="form-box">
                         <li class="f-line clearfix">
                             <label class="f-label">会员单位</label>
@@ -57,11 +58,13 @@
                             内容内容内容内容内容内容内容<br>
                         </div>
                     </div>
+					
                     <input type="submit" value="完成注册" class="f-sub" id='send'>
                     <div class="forgot"><span class="fl"><a href="{:U('User/login')}">已有账号，立即登录</a></span></div>
                 </form>
+				<!--
                 <else/>
-
+ 
                 <form  class="i-form" method="post" action="{:U('User/myreg')}" >
                     <input type="hidden" name="oid" value="{$oid}">
                     <input type="hidden" name="openid" value="{$openid}">
@@ -74,7 +77,7 @@
                     <input type="submit" value="注册" class="f-sub" id='send'>
                 </form>
 
-            </if>
+            </if>-->
         </div>
     </div>
     <script src="__JS__/jquery-2.1.1.min.js"></script>
@@ -84,15 +87,32 @@
     <script type="text/javascript">
         $(document).ready(function(){
             $("#mes").click(function(){
-                alert('短信已经发送，请注意查收');
-                $.ajax({
+			
+               if(/^1[34578]\d{9}$/.test($("[name='utel']").val())){
+				 $.ajax({
                     type: 'POST',
                     url: "{:U('User/smsverify')}",
                     data: {
                         tel:$("[name='utel']").val(),
                     },
-                    dataType: "json"
+                    
+					success:function(data){
+						console.log(data);
+						if(data=='yes'){
+							 alert('短信已经发送，请注意查收');
+							 $('#mes').attr('disabled',true);
+							 $('#mes').attr('style','background-color:gray');
+						}else{
+							 alert('发送失败,请稍后再试');
+						}
+					}
                 });
+			   
+			   }else{
+					alert('请输入正确的手机号');
+					
+			   }
+               
             });
         });
     </script>
@@ -155,12 +175,14 @@
             });//end blur
             //提交，最终验证。
             $('#send').click(function(){
+				
                 $("form :input.text").trigger('blur');
                 var numError = $('form .onError').length;
                 if(numError){
                     return false;
                 }
-                alert("注册成功");
+				$('#form1').submit();
+                
             });
             //服务条款效果
             $("#btnBook").click(function(){

@@ -23,15 +23,14 @@ function orderhandle($parameter){
     $ordid=$parameter['order_no'];
     $data['isverified']  =1;
     $Ord=M('Balance');
-    $uid = $Ord->where('balanceno='.$ordid)->getField('uid');
+    $uid = $Ord->where('bpno='.$ordid)->getField('uid');
     //充值金额
-    $data['bpprice']  = $parameter['order_amount'];
-
+    $data['bpprice']  = $parameter['order_amount'];;
     $balance = D('Accountinfo')->where("uid=".$uid)->getField('balance');
     $balance = $balance + $parameter['order_amount'];
     $da['balance'] = $balance;
     //更新总账户
     D('Accountinfo')->where("uid=".$uid)->save($da);
     //更新充值金额及状态
-    $Ord->where('balanceno='.$ordid)->save($data);
+    $Ord->where('bpno='.$ordid)->save($data);
 }

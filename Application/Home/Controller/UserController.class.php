@@ -31,6 +31,7 @@ class UserController extends Controller
         }
         $userinfo = M('userinfo');
         $user_agent = $_SERVER['HTTP_USER_AGENT'];
+		//echo $user_agent;exit;
         if (strpos($user_agent, 'MicroMessenger') === false) {
              //非微信浏览器禁止浏览
             //echo "不是微信";
@@ -48,6 +49,7 @@ class UserController extends Controller
                 //echo $_GET['openid'];
                 //这里做一个判断，客户没有注册，则直接去注册页面，否则去登录页面。
                 $openid['openid']=$_GET['openid'];
+				session('openid',$openid['openid']);
                 $openid['nickname']=$_GET['nickname'];
                 $openid['address']=$_GET['address'];
                 $openid['portrait']=$_GET['portrait'];
@@ -88,6 +90,8 @@ class UserController extends Controller
         
         $openid=I('get.openid'); 
         $oid = I('get.oid');
+		
+		
         $this->assign('openid',$openid);
         $this->assign('oid',$oid);
         $this->display();
@@ -96,7 +100,9 @@ class UserController extends Controller
     //注册
     public function register()
     {
-         $this->userlogin();
+        // $this->userlogin();
+		$code=session('code');
+		//echo $code;exit;
         if(IS_POST)
         {// 判断提交方式 做不同处理
             // 实例化User对象
@@ -104,16 +110,27 @@ class UserController extends Controller
             //检查用户名
             header("Content-type: text/html; charset=utf-8");
             //检查手机验证码
-            $code = $this->mescontent();
+            //$code = $this->mescontent();
+			$code=session('code');
             $verify = I('post.code');
-            if ($code != $verify) {
+			/* echo $code.'<br>';
+			echo $verify.'<br>'; */
+            if ($code == $verify) {
+				//echo 123;exit;
                 /*
                 *推广链接时需要在注册时添加一个获取oid的方法，添加进去，作为上线的记录。
-                */                 
+                */  
+				
+				$data['openid']=session('openid');
+				$op=$user->where('openid='.$data['openid'])->find();
+				if($op){
+					$data['openid']='';
+				}
                 $data['username'] = I('post.username');
                 $data['utel'] = I('post.utel');
-                $data['utime'] = date(time());
-                $data['upwd'] = md5(I('post.upwd') . date(time()));
+				$time=time();
+                $data['utime'] = date($time);
+                $data['upwd'] = md5(I('post.upwd') . date($time));
                 $data['oid']=I('post.oid');
                 $uname = $user->where('username='.$data['username'])->find();
                 
@@ -124,23 +141,34 @@ class UserController extends Controller
                     if ($uid = $user->add($data)) {
                         //添加对应的金额表
                         $acc['uid']=$uid;
+						$acc['pwd']=md5(I('post.upwd'));
                         $aid = M('accountinfo')->add($acc);
-                        $this->ajaxReturn(1);
+                        //$this->ajaxReturn(1);
+						session('code','');
+						session('openid','');
+						$this->success("注册成功","login");
                     } else {
-                        $this->ajaxReturn(2);
+                        //$this->ajaxReturn(2);
+						$this->error("注册失败,请稍后重试");
                     }
                 }
+				//session('code','');
+				//$this->success("注册成功","/login");
+				//$this->redirect('User/login');
             }else{
-                $this->ajaxReturn(0);
+				$this->error("验证码错误");
+                //$this->ajaxReturn(0);
             }
 
         }else{
-            $oid = I('get.oid');
+			session('code','');
+			$this->error("注册失败,请稍后重试");
+            /* $oid = I('get.oid');
             $com = M('userinfo')->field('comname,uid')->where('uid='.$oid)->find();         
             $this->assign('com',$com);
-            $this->display();           
+            $this->display();  */          
         }
-
+		
     }
     //设置初始密码，密码后台可以修改。这里需要创建资金表，创建详细信息表。
     public function myreg(){
@@ -180,26 +208,31 @@ class UserController extends Controller
     public function smsverify()
     {
         $code = $this->mescontent();
-        $post_data = array();
+		session('code',$code);
+		//$_SESSION['code']=$code;
+        /* $post_data = array();
         $post_data['userid'] = '2571';
         $post_data['password'] = 'zjy100200';
         $post_data['account'] = 'zj46602437';
-        $post_data['content'] = '【微盘开发】您的验证码是:' . $code;
+        $post_data['content'] = '【微盘开发】您的验证码是:' . $code;*/
         $post_data['mobile'] = $_REQUEST['tel'];
-        $post_data['sendtime'] = ''; //不定时发送，值为0，定时发送，输入格式YYYYMMDDHHmmss的日期值
-        $url = 'http://118.145.18.236:9999/sms.aspx?action=send';
-        $o = '';
+        /*$post_data['sendtime'] = ''; //不定时发送，值为0，定时发送，输入格式YYYYMMDDHHmmss的日期值 */
+        $url = 'http://106.ihuyi.com/webservice/sms.php?method=Submit&account=cf_zhongxuan&password=6e76d190447c879d7b02a46cc21fde36&mobile='.$post_data['mobile'].'&content=您的验证码是：'.$code.'。请不要把验证码泄露给其他人。';
+		
+		file_get_contents($url);
+		echo 'yes';
+        /*$o = '';
         foreach ($post_data as $k => $v) {
             $o .= "$k=" . urlencode($v) . '&';
         }
         $post_data = substr($o, 0, -1);
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_POST, 1);
+        //curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
         //curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); //如果需要将结果直接返回到变量里，那加上这句。
-        $result = curl_exec($ch);
+        $result = curl_exec($ch);*/
 
     }
 
@@ -219,23 +252,31 @@ class UserController extends Controller
     public function edituser()
     {
         $this->userlogin();
-        if (IS_POST) {
+		//var_dump($_POST);
+        if ($_POST) {
             $data['uid'] = $_SESSION['uid'];
-            $myuser = M('userinfo')->where('uid=' . $data['uid'])->find();
+            //$myuser = M('userinfo')->where('uid=' . $data['uid'])->find();
+            $myuser = M('accountinfo')->where('uid=' . $data['uid'])->find();
             $user = M('userinfo')->where($data)->find();
-            if ($user['upwd'] === md5(I('post.upwd') . $myuser['utime'])) {
-                $edit = M('userinfo');
-                if ($edit->create()) {
+			if(I('post.mypwd')!=I('post.newpwd')){
+					$this->error('两次密码不一致,请重新输入');
+			}
+			
+            if (md5(I('post.upwd'))==$myuser['pwd']) {
+				
+                $edit = M('accountinfo');
+               
                     $edit->uid = $_SESSION['uid'];
-                    $edit->utime = date(time());
-                    $edit->upwd = md5(I('post.newpwd') . date(time()));
+                    //$edit->utime = date(time());
+                    $edit->pwd = md5(I('post.newpwd'));
                     $edituser = $edit->save();
                     if ($edituser) {
-                        redirect(U('User/memberinfo'), 1, '密码修改成功...');
+                        //redirect(U('User/memberinfo'), 1, '密码修改成功...');
+						$this->error('密码修改成功');
                     } else {
                         $this->error('密码修改失败，请重新修改');
                     }
-                }
+               
             } else {
                 $this->error('原密码不正确，请重新输入');
             }
@@ -274,8 +315,17 @@ class UserController extends Controller
             $branch = $params['branch'];
             $busername = $params['busername'];
             $bpprice = $params['bpprice'];
-            if($bpwd['pwd']==$pwd){
+            if($bpwd['pwd']==md5($pwd)){
                 if(strlen($banknumber)==16||strlen($banknumber)==19){
+                    $user=M('accountinfo')->where('uid='.$uid)->find();
+                    $remained = $user['balance']-$bpprice;
+                    if($remained < 0)
+                    {
+                        $s['success'] = 0;
+                        $s['errors'] = '您的账户余额不足，请先充值！';
+                        $this->ajaxReturn($s); 
+                        //echo "<script>alert('亲，您已经购买了此产品')</script>";
+                    } 
                     $detailed = A('Home/Detailed');
                     //提现表
                     $balances['bptype'] = '提现';
@@ -356,23 +406,28 @@ class UserController extends Controller
         $this->assign('suer', $suer);
         $this->assign('style','1');
         if (IS_POST) {
-        	$params = json_decode(file_get_contents('php://input'),true);
-             $date['bpprice']=$params["DepositAmount"];
-             $date['bpno']=$this->build_order_no();
-             $date['uid']=$uid;
-             $date['bptype']='充值';
-             $date['bptime']=date(time());
-             $date['remarks']='开始充值';
-             $balanceid=M('balance')->add($date);
-             if ($balanceid) {
-                $balc=M('balance')->where('bpid='.$balanceid)->find();
-                $this->assign('balc',$balc);
-             }
-             $s['id'] = $balanceid;
-             $s['success']=1;
-             $s['errors'] = 0;
-             $this->ajaxReturn($s);
-             //$this->assign('style','2');
+        	// $params = json_decode(file_get_contents('php://input'),true);
+			$date['bpprice']=I("tfee1");
+			$date['bpno']=$this->build_order_no();
+			$date['uid']=$uid;
+			$date['bptype']='充值';
+			$date['bptime']=date(time());
+			$date['remarks']='开始充值';
+			$balanceid=M('balance')->add($date);
+			if ($balanceid) {
+			$balc=M('balance')->where('bpid='.$balanceid)->find();
+			$this->assign('balc',$balc);
+			}
+			$param_arr = array();
+			$param_arr['pay_orderid'] = $date['bpno'];
+			$param_arr['pay_amount'] = $date['bpprice'];
+			$pay_controller = A('Pay');
+			$pay_controller->zhongyunpay($param_arr);
+			// $s['id'] = $balanceid;
+			// $s['success']=1;
+			// $s['errors'] = 0;
+			// $this->ajaxReturn($s);
+			//$this->assign('style','2');
         }
         $this->display();
     }
@@ -382,7 +437,7 @@ class UserController extends Controller
     			$balc=M('balance')->where('bpid='.$_GET['id'])->find();
     			$balc['bpno']=$this->build_order_no();
     			$this->assign('balc',$balc);
-    	dump($balc);
+    	// dump($balc);exit;
     	$this->display();
     }
     //处理支付后的结果，加钱
